@@ -12,7 +12,7 @@ user_id = ''
 @login_required
 def home():
     if request.method == 'POST': 
-        note = request.form.get('note')#Gets the note from the HTML 
+        note = request.form.get('note') #Gets the note from the HTML 
 
         if len(note) < 1:
             flash('Note is too short!', category='error') 
@@ -44,13 +44,13 @@ def search():
         query = request.form["query"]
         global user_id
         user_id = query
-        # Make API request to third-party website
         username = 'DLytvynenko'                    
         password = 'Feeney2022!!'
-        response = requests.get(f"https://feeney.coinscloud.com/env/learn/rest/pages/personnel/{query}", auth=(username,password))
+        # Send API request to the server with Basic Auth
+        response = requests.get(f"https://feeney.coinscloud.com/env/learn/rest/pages/personnel1/{query}", auth=(username,password))
         if response.status_code == 200:
             data = response.json()
-    
+            # Changed data from JSON format to Text
             data_up = {
                 "ID": data["hrp_id"],
                 "Company": data["ppo_kco"],
@@ -67,18 +67,35 @@ def search():
     return render_template("search.html"), response.status_code
 
 
-@views.route("/update", methods=["POST"])
+@views.route("/update", methods=["POST", "PUT"])
 def update():
     if request.method == "POST":
         global user_id
-        query = request.form["query"]
-        update = {"ppo_email": query}
-        username = 'DLytvynenko'                    
-        password = 'Feeney2022!!'
-        response = requests.patch(f"https://feeney.coinscloud.com/env/learn/rest/pages/personnel/{user_id}", json=update, auth=(username, password))
+        email_unput = request.form["email_unput"]
+        cloud_id_input = request.form["cloud_id_input"]
+        full_name_input = request.form["full_name_input"]
+        company_id_input = request.form["company_id_input"]
+        status_input = request.form["status_input"]
+        cloud_status_input = request.form["cloud_status_input"]
+        url = (f"https://feeney.coinscloud.com/env/learn/rest/pages/personnel1/{user_id}")
+        payload = json.dumps({
+            "ppo_kco": company_id_input,
+            "ppo_search_name": full_name_input,
+            "por_cloud": cloud_status_input,
+            "por_cloudID": cloud_id_input,
+            "ppo_email": email_unput,
+            "ppo_leaver": status_input
+            })
+        headers = {
+            'Authorization': 'Basic REx5dHZ5bmVua286RmVlbmV5MjAyMiEh',
+            'Content-Type': 'application/json'
+            }
+
+        response = requests.request("PUT", url, headers=headers, data=payload)
+
         if response.status_code == 200:
             updated = response.json()
-        
+            # Changed data from JSON format to Text
             updated_data = {
                 "ID": updated["hrp_id"],
                 "Company": updated["ppo_kco"],
@@ -95,4 +112,41 @@ def update():
     # return render_template("search.html")
     
     return render_template("search.html"), response.status_code
+
+
+
+
+
+    #     update = {
+    #         "ppo_email": query
+    #         # "ppo_kco": query,
+    #         # "ppo_leaver": query,
+    #         # "por_cloudID": query
+    #         # "por_cloud": query
+            
+    #     }
+    #     username = 'DLytvynenko'                    
+    #     password = 'Feeney2022!!'
+    #     # Send API request to the server with Basic Auth
+    #     response = requests.patch(f"https://feeney.coinscloud.com/env/learn/rest/pages/personnel1/{user_id}", json=update, auth=(username, password))
+    #     if response.status_code == 200:
+    #         updated = response.json()
+    #         # Changed data from JSON format to Text
+    #         updated_data = {
+    #             "ID": updated["hrp_id"],
+    #             "Company": updated["ppo_kco"],
+    #             "Full Name": updated["ppo_search_name"],
+    #             "Email": updated["ppo_email"],
+    #             "Leaver": updated["ppo_leaver"],
+    #             "Cloud ID": updated["por_cloudID"],
+    #             "Cloud": updated["por_cloud"],
+    #             "Internal Reference": updated["ppo_seq"]
+    #             }
+    #         # return jsonify(response.json(), updated)
+    #         return render_template("update.html", updated_data=updated_data)
+        
+    # # return render_template("search.html")
     
+    # return render_template("search.html"), response.status_code
+    
+        

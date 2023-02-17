@@ -16,13 +16,15 @@
       crossorigin="anonymous"
     />
     <title>{% block title %}Results{% endblock %}</title>
-  
+<style>
+      div.c {
+      position: relative;
+      right: -450px;
+      top: -240px;
+    } 
+</style>
 </head>
-<!-- <div class="collapse navbar-collapse" id="navbar">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" id="home" href="/">Home</a>
-  </div>
-</div> -->
+
   <body>
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,6 +39,7 @@
       <div class="collapse navbar-collapse" id="navbar">
         <div class="navbar-nav">
           <a class="nav-item nav-link" id="home" href="/">Home</a>
+          <button onclick="history.back()">Back</button>
         </div>
       </div> 
     </nav> 
@@ -47,12 +50,20 @@
             <!-- <li>{{ data }}</li> -->
           {% endfor %} 
         </ul>
-        <h4 style="margin-left: 40px;">Update Personnel by email</h4>
+        
+  <div class="c">
+    <h2 style="margin-left: 40px;">Update User Information</h2>
     <form action="/update" method="post">
       <!-- <p style="margin-left: 40px">Update User data by IntReq</p> -->
-      <input style="margin-left: 40px" type="text" name="query" placeholder="New User Email">
-      <input type="submit" value="Update">
-      <input type="reset" value="Reset">
+      <input style="margin-left: 40px" type="text" name="email_unput" placeholder="New User Email" size="32"><br>
+      <input style="margin-left: 40px; background-color:rgb(231, 29, 29)" type="text" name="full_name_input" placeholder="New User FullName" value="You can not change User name" readonly size="32"><br>
+      <input style="margin-left: 40px; background-color:rgb(231, 29, 29)" type="text" name="company_id_input" placeholder="New User CompanyID(kco)" value="You can not change kco" readonly size="32"><br>
+      <input style="margin-left: 40px" type="text" name="status_input" placeholder="Has the employee left(True or False)?" size="32"><br>
+      <input style="margin-left: 40px" type="text" name="cloud_id_input" placeholder="New User CloudID" size="32"><br>
+      <input style="margin-left: 40px; background-color:rgb(231, 29, 29)" type="text" name="cloud_status_input" placeholder="Has the employee activate in COINS?" value="You can not change Cloud access" readonly size="32"><br>
+      <input style="margin-left: 50px" type="submit" value="Update">
+      <input style="margin-left: 40px" type="reset" value="Reset">
     </form>
+  </div>
   </body>
 </html>
