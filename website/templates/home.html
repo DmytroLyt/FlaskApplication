@@ -1,6 +1,13 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
   %}
-<!-- <style>
+<head>
+  <style>
+    body {
+      background-color: rgb(125, 125, 125);
+    }
+  </style>
+</head>
+ <!-- <style>
   input[type=text] {
   width: 150px;
   height: 40px;
@@ -13,11 +20,13 @@
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   }
-</style> -->
+</style> --> 
+  <body>
+  
   <div class="form-group">
     <h4>Search User</h4>
       <form action="/search" method="post">
-        <p>Search User by ID</p>
+        <p><strong>Search User by ID</strong></p>
         <input type="text" name="query" placeholder="Enter user ID">
         <input type="submit" value="Search User">
         <input type="reset" value="Reset">
@@ -43,5 +52,5 @@
       <button type="reset" class="btn btn-primary">Reset</button>
     </div>
   </form>
-
+  </body>
   {% endblock %}

@@ -17,24 +17,29 @@
     />
 
     <title>{% block title %}Search{% endblock %}</title>
+    <style>
+      body {
+        background-color: rgb(125, 125, 125);
+      }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" id="search" href="/">Home</a>
-            <button onclick="history.back()">Back</button>
-          </div>
-        </div> 
-      </nav> 
-    <h1 align="center" >Input is incorrect, please check your data and try again.</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" id="search" href="/">Home</a>
+          <button onclick="history.back()">Back</button>
+        </div>
+      </div> 
+    </nav> 
+  <h1 align="center" >Input is incorrect, please check your data and try again.</h1>
 </body>
 </html> 
