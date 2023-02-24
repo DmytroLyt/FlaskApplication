@@ -15,21 +15,8 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <title>{% block title %}Update{% endblock %}</title>
-  <style>
-    body {
-      background-color: rgb(125, 125, 125);
-    }
-
-    ul {
-      color: aliceblue;
-    }
-
-    div.updated {
-      margin-left: 450px;
-      margin-top: 200px;
-    }
-  </style>
 </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +36,7 @@
       </div> 
     </nav>
     <div class="updated">
-      <h1 style="margin-left: 40px;">Successfully Updated</h1>
+      <h1>Successfully Updated</h1>
         <ul>
           {% for key, value in updated_data.items() %} 
             {{ key }}: {{ value }}<br>
