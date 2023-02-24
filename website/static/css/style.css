@@ -1,0 +1,64 @@
+/* Update Page */
+body {
+    background-color: rgb(125, 125, 125);
+  }
+
+ul {
+    color: aliceblue;
+  }
+
+.updated {
+    margin-left: 450px;
+    margin-top: 200px;
+  }
+
+.updated h1 {
+    margin-left: 40px;
+}
+
+/* Results Page */
+.c {
+    position: relative;
+    right: -750px;
+    top: -260px;
+    border: 3px solid black;
+    padding: 5px;
+    width: 350px;
+}
+
+.c h1 {
+    margin-left: 40px;
+}
+
+body {
+  background-color: rgb(125, 125, 125);
+}
+
+.results h1{
+  margin-left: 440px;
+  margin-top: 160px;
+}
+
+.results ul {
+  color: aliceblue;
+  margin-left: 405px;
+}
+
+/* Search Page */
+body {
+    background-color: rgb(125, 125, 125);
+  }
+
+/* Home Page  */
+body {
+    background-color: rgb(125, 125, 125);
+  }
+
+.form-group {
+    border: 3px solid black; 
+    padding: 10px; 
+    width: 220px;
+  }
+input[type="reset"] {
+    margin-left: 10px;
+}

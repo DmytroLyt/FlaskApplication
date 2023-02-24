@@ -1,14 +1,7 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
   %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
-<head>
-  <style>
-    body {
-      background-color: rgb(125, 125, 125);
-    }
-    
-  </style>
-</head>
  <!-- <style>
   input[type=text] {
   width: 150px;
@@ -31,7 +24,7 @@
         <p><strong>Search User by ID</strong></p>
         <input type="text" name="query" placeholder="Enter user ID"><br>
         <input  type="submit" value="Search User" class="btn btn-primary">
-        <input style="margin-left: 10px;" type="reset" value="Reset" class="btn btn-primary">
+        <input type="reset" value="Reset" class="btn btn-primary">
       </form>
   </div>
   <h1 align="center">Notes</h1>
