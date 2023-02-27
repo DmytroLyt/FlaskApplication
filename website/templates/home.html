@@ -21,25 +21,27 @@
   <div class="form-group">
     <h4>Search User</h4>
       <form action="/search" method="post">
-        <p><strong>Search User by ID</strong></p>
+        <p><strong><u>Search User by ID</u></strong></p>
         <input type="text" name="query" placeholder="Enter user ID"><br>
         <input  type="submit" value="Search User" class="btn btn-primary">
         <input type="reset" value="Reset" class="btn btn-primary">
       </form>
   </div>
-  <h1 align="center">Notes</h1>
-  <ul class="list-group list-group-flush" id="notes">
-    
-    {% for note in user.notes %}
-    <li class="list-group-item">
-      {{ note.data }}
-      <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="note-home">
+    <h1 align="center">Notes</h1>
+      <ul class="list-group list-group-flush" id="notes">
+        
+        {% for note in user.notes %}
+        <li class="list-group-item">
+          {{ note.data }}
+          <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        
+        </li>
+        {% endfor %}
+      </ul>
+  </div>
   <div class="note-input">
     <form method="POST">
       <textarea name="note" id="note" class="form-control"></textarea>
