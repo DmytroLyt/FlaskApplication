@@ -1,6 +1,6 @@
 # Flask Web App Tutorial
 
-This app with minimum functions is creating for company needs by sending API requests to servers and get results more quicly.
+This app with minimum functions is creating for company needs for sending API requests to servers and get results more quicly.
 
 ## Setup & Installation
 
