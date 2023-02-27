@@ -16,7 +16,7 @@
   padding: 12px 20px 12px 40px;
   }
 </style> --> 
-  <body>
+  <body class="body-style">
   
   <div class="form-group">
     <h4>Search User</h4>
@@ -40,13 +40,15 @@
     </li>
     {% endfor %}
   </ul>
-  <form method="POST">
-    <textarea name="note" id="note" class="form-control"></textarea>
-    <br />
-    <div align="center">
-      <button type="submit" class="btn btn-primary">Add Note</button>
-      <button type="reset" class="btn btn-primary">Reset</button>
-    </div>
-  </form>
+  <div class="note-input">
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br/>
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+        <button type="reset" class="btn btn-primary">Reset</button>
+      </div>
+    </form>
+  </div>
   </body>
   {% endblock %}
